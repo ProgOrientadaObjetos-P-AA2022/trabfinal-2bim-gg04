@@ -10,9 +10,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     private double costGb;
     private double tarbase;
 
-    public double getTarbase() {
-        return tarbase;
-    }
+    
 
     public void setTarbase(double tarbase) {
         this.tarbase = tarbase;
@@ -32,6 +30,10 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     public void setMegGb(double megGb) {
         this.megGb = megGb;
+    }
+    
+    public double getTarbase() {
+        return tarbase;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package paquete01;
 
+import paquete2.Propietario;
+
 /**
  *
  * @author andreflores
@@ -11,41 +13,66 @@ public class PlanPostPagoMinutos extends PlanCelular {
     private int minInt;
     private double costminInt;
 
-    public double getCostminInt() {
-        return costminInt;
+    public PlanPostPagoMinutos(Propietario p, String m, String mod, String num,
+            int min, double cMin, int minI, double cosInt) {
+        super(p, m, mod, num);
+        minNac = min;
+        costminNac = cMin;
+        minInt = minI;
+        costminInt = cosInt;
     }
 
-    public void setCostminInt(double costminInt) {
-        this.costminInt = costminInt;
+    public void establecerMinNac(int n) {
+        minNac = n;
     }
 
-    public int getMinInt() {
-        return minInt;
+    public void establecerCostminNac(double n) {
+        costminNac = n;
     }
 
-    public void setMinInt(int minInt) {
-        this.minInt = minInt;
+    public void establecerMinInt(int n) {
+        minInt = n;
     }
 
-    public double getCostminNac() {
-        return costminNac;
-    }
-
-    public void setCostminNac(double costminNac) {
-        this.costminNac = costminNac;
-    }
-
-    public int getMinNac() {
-        return minNac;
-    }
-
-    public void setMinNac(int minNac) {
-        this.minNac = minNac;
+    public void establecerCostminInt(double n) {
+        costminInt = n;
     }
 
     @Override
     public void calcularPagoMensual() {
-        // TODO Auto-generated method stub
+        pago_mensual = (minNac * costminNac) + (minInt * costminInt);
+    }
 
+    public int obtenerMinNac() {
+        return minNac;
+    }
+
+    public double obtenerCostminNac() {
+        return costminNac;
+    }
+
+    public int obtenerMinInt() {
+        return minInt;
+    }
+
+    public double obtenerCostminInt() {
+        return costminInt;
+    }
+    @Override
+    public String toString (){
+        String data = String.format("Plan PostPago Minutos\n"
+                + "Propietario: %s\n"
+                + "Marca: %s\n"
+                + "Modelo: %s\n"
+                + "Número de minutos nacionales: %d\n"
+                + "Número de minutos internacionales: %d\n"
+                + "Pago mensual: %.2f\n",
+                prop,
+                marca,
+                modelo,
+                obtenerMinNac(),
+                obtenerMinInt(),
+                obtenerPagoMensual());
+        return data;
     }
 }
