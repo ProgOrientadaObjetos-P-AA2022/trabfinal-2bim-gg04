@@ -66,7 +66,7 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception:");
+            System.out.println("Exception insertarPlanPostPagoMinutos:");
             System.out.println(e.getMessage());
 
         }
@@ -100,7 +100,7 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception:");
+            System.out.println("Exception insertarPlanPostPagoMegas:");
             System.out.println(e.getMessage());
 
         }
@@ -138,7 +138,7 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception:");
+            System.out.println("Exception insertarPlanPostPagoMinutosMegas:");
             System.out.println(e.getMessage());
 
         }
@@ -180,7 +180,8 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception:");
+            System.out.println("Exception "
+                    + "insertarPlanPostPagoMinutosMegasEconomico:");
             System.out.println(e.getMessage());
 
         }
@@ -236,7 +237,7 @@ public class Enlace {
 
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception: PlanPostPagoMegas");
+            System.out.println("Exception insertarPlanPostPagoMegas");
             System.out.println(e.getMessage());
 
         }
@@ -265,7 +266,7 @@ public class Enlace {
 
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception: insertarPlanPostPagoMinutos");
+            System.out.println("Exception: insertarPlanPostPagoMinutosMegas");
             System.out.println(e.getMessage());
 
         }
@@ -295,7 +296,8 @@ public class Enlace {
 
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception: insertarPlanPostPagoMinutos");
+            System.out.println("Exception: "
+                    + "insertarPlanPostPagoMinutosMegasEconomico");
             System.out.println(e.getMessage());
 
         }
