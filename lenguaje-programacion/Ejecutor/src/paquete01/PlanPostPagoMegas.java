@@ -8,33 +8,41 @@ import paquete2.Propietario;
  */
 public class PlanPostPagoMegas extends PlanCelular {
 
-    public PlanPostPagoMegas(Propietario p, String m, String mod, String num) {
-        super(p, m, mod, num);
-        // TODO Auto-generated constructor stub
-    }
-
     private double megGb;
     private double costGb;
     private double tarbase;
 
-    public void establecerTarbase(double tarbase) {
-        this.tarbase = tarbase;
+    public PlanPostPagoMegas(Propietario p, String m, String mod, String num,
+            double me, double co, double tar) {
+        super(p, m, mod, num);
+        megGb = me;
+        costGb = co;
+        tarbase = tar;
     }
 
-    public double obtenerCostGb() {
-        return costGb;
+    public void establecerMegGb(double n) {
+        megGb = n;
     }
 
-    public void establecerCostGb(double costGb) {
-        this.costGb = costGb;
+    public void establecerCostGb(double n) {
+        costGb = n;
+    }
+
+    public void establecerTarbase(double n) {
+        tarbase = n;
+    }
+
+    @Override
+    public void calcularPagoMensual() {
+        pago_mensual = (obtenerCostGb() * obtenerMegGb()) + obtenerTarbase();
     }
 
     public double obtenerMegGb() {
         return megGb;
     }
 
-    public void establecerMegGb(double megGb) {
-        this.megGb = megGb;
+    public double obtenerCostGb() {
+        return costGb;
     }
 
     public double obtenerTarbase() {
@@ -47,9 +55,10 @@ public class PlanPostPagoMegas extends PlanCelular {
                 + "Propietario: %s\n"
                 + "Marca: %s\n"
                 + "Modelo: %s\n"
-                + "Número de minutos megas en gigas: %d\n"
-                + "Costo por giga: %d\n"
-                + "Tarifa base: %.2f\n" + "Pago mensual: %.2f\n",
+                + "Número de megas en gigas: %.0f\n"
+                + "Costo por giga: %.0f\n"
+                + "Tarifa base: %.2f\n"
+                + "Pago mensual: %.2f\n",
                 prop,
                 marca,
                 modelo,
@@ -60,9 +69,4 @@ public class PlanPostPagoMegas extends PlanCelular {
         return data;
     }
 
-    @Override
-    public void calcularPagoMensual() {
-        // TODO Auto-generated method stub
-
-    }
 }

@@ -13,62 +13,64 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     private double megGb;
     private double costGb;
 
-    public PlanPostPagoMinutosMegas(Propietario p, String m, String mod, String num, int min, double costminutos,
-            double megGb, double costGb) {
+    public PlanPostPagoMinutosMegas(Propietario p, String m, String mod,
+            String num, int mi, double cost,
+            double me, double costGB) {
         super(p, m, mod, num);
-        this.min = min;
-        this.costminutos = costminutos;
-        this.megGb = megGb;
-        this.costGb = costGb;
-    }
-
-    public double obtenerCostGb() {
-        return costGb;
-    }
-
-    public void establecerCostGb(double n) {
-        costGb = n;
-    }
-
-    public double obtenerMegGb() {
-        return megGb;
-    }
-
-    public void establecerMegGb(double n) {
-        megGb = n;
-    }
-
-    public double obtenerCostminutos() {
-        return costminutos;
-    }
-
-    public void establecerCostminutos(double n) {
-        costminutos = n;
-    }
-
-    public int obtenerMin() {
-        return min;
+        min = mi;
+        costminutos = cost;
+        megGb = me;
+        costGb = costGB;
     }
 
     public void establecerMin(int n) {
         min = n;
     }
 
+    public void establecerCostminutos(double n) {
+        costminutos = n;
+    }
+
+    public void establecerMegGb(double n) {
+        megGb = n;
+    }
+
+    public void establecerCostGb(double n) {
+        costGb = n;
+    }
+
+    public int obtenerMin() {
+        return min;
+    }
+
+    public double obtenerCostminutos() {
+        return costminutos;
+    }
+
+    public double obtenerMegGb() {
+        return megGb;
+    }
+
+    public double obtenerCostGb() {
+        return costGb;
+    }
+
     @Override
     public void calcularPagoMensual() {
-        // TODO Auto-generated method stub
-
+        pago_mensual = (obtenerMin() * obtenerCostminutos())
+                + (obtenerMegGb() * obtenerCostGb());
     }
 
     @Override
     public String toString() {
-        String data = String.format("Plan PostPago Megas\n"
+        String data = String.format("Plan PostPago Minutos Megas\n"
                 + "Propietario: %s\n"
                 + "Marca: %s\n"
                 + "Modelo: %s\n"
-                + "Número de minutos plan PostPago Megas: %d\n"
-                + "Costo de minutos plan PostPago Megas: %d\n"
-                + "Numero de megas expresados en gigas: %.2f\n" + "Costo de megas plan PostPago Megas "
+                + "Número de minutos: %d\n"
+                + "Costo de minutos: %.2f\n"
+                + "Numero de megas expresados en gigas: %.2f\n"
+                + "Costo por cada giga: %.2f\n "
                 + "Pago mensual: %.2f\n",
                 prop,
                 marca,
@@ -76,7 +78,8 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
                 obtenerMin(),
                 obtenerCostminutos(),
                 obtenerMegGb(),
-                obtenerCostGb(), obtenerPagoMensual());
+                obtenerCostGb(),
+                obtenerPagoMensual());
         return data;
     }
 

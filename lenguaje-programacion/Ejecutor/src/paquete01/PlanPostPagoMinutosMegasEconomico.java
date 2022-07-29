@@ -14,70 +14,76 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double megGb;
     private double costGb;
 
-    public PlanPostPagoMinutosMegasEconomico(Propietario p, String m, String mod, String num, int min, double por,
-            double costmin, double megGb, double costGb) {
+    public PlanPostPagoMinutosMegasEconomico(Propietario p, String m,
+            String mod, String num, int mi, double por, double cost, double meg,
+            double costGB) {
         super(p, m, mod, num);
-        this.min = min;
-        this.porcentajedesc = por;
-        this.costmin = costmin;
-        this.megGb = megGb;
-        this.costGb = costGb;
+        min = mi;
+        porcentajedesc = por;
+        costmin = cost;
+        megGb = meg;
+        costGb = costGB;
     }
 
-    public int obtenerMin() {
-        return min;
-    }
-
-    public void establecerMin(int min) {
-        this.min = min;
-    }
-
-    public double obtenerCostmin() {
-        return costmin;
-    }
-
-    public void establecerCostmin(double n) {
-        costmin = n;
-    }
-
-    public double obtenerMegGb() {
-        return megGb;
-    }
-
-    public void establecerMegGb(double n) {
-        megGb = n;
-    }
-
-    public double obtenerCostGb() {
-        return costGb;
-    }
-
-    public void establecerCostGb(double n) {
-        costGb = n;
-    }
-
-    public double obtenerPor() {
-        return porcentajedesc;
+    public void establecerMin(int n) {
+        min = n;
     }
 
     public void establecerPor(double n) {
         porcentajedesc = n;
     }
 
+    public void establecerCostmin(double n) {
+        costmin = n;
+    }
+
+    public void establecerMegGb(double n) {
+        megGb = n;
+    }
+
+    public void establecerCostGb(double n) {
+        costGb = n;
+    }
+
+    public int obtenerMin() {
+        return min;
+    }
+
+    public double obtenerPor() {
+        return porcentajedesc / 100;
+    }
+
+    public double obtenerCostmin() {
+        return costmin;
+    }
+
+    public double obtenerMegGb() {
+        return megGb;
+    }
+
+    public double obtenerCostGb() {
+        return costGb;
+    }
+
     @Override
     public void calcularPagoMensual() {
-        // TODO Auto-generated method stub
+        pago_mensual = ((obtenerMin() * obtenerCostmin()) + 
+                (obtenerMegGb()*obtenerCostGb())) -((obtenerMin() * 
+                obtenerCostmin()) + (obtenerMegGb()*obtenerCostGb())
+                *obtenerPor());
 
     }
+
     @Override
     public String toString() {
-        String data = String.format("Plan PostPago Megas\n"
+        String data = String.format("Plan PostPago Minutos Megas Economico\n"
                 + "Propietario: %s\n"
                 + "Marca: %s\n"
                 + "Modelo: %s\n"
-                + "Número de minutos plan PostPago Megas Economico: %d\n"
-                + "Costo de minutos plan PostPago Megas Economico: %d\n"
-                + "Numero de megas expresados en gigas plan PostPago Megas Economico: %.2f\n" + "Costo de megas plan PostPago Megas Economico"
+                + "Número de minutos: %d\n"
+                + "Costo de minutos: %.2f\n"
+                + "Numero de megas expresados en gigas: %.2f\n" 
+                + "Costo de megas: %.2f\n"
                 + "Pago mensual: %.2f\n",
                 prop,
                 marca,
@@ -85,7 +91,8 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
                 obtenerMin(),
                 obtenerCostmin(),
                 obtenerMegGb(),
-                obtenerCostGb(), obtenerPagoMensual());
+                obtenerCostGb(), 
+                obtenerPagoMensual());
         return data;
     }
 
