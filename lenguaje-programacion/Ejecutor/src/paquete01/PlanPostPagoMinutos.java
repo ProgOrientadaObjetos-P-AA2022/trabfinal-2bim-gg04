@@ -13,9 +13,10 @@ public class PlanPostPagoMinutos extends PlanCelular {
     private int minInt;
     private double costminInt;
 
-    public PlanPostPagoMinutos(Propietario p, String m, String mod, String num,
-            int min, double cMin, int minI, double cosInt) {
-        super(p, m, mod, num);
+    public PlanPostPagoMinutos(String n, String i, String ciud, String m, 
+            String mod, String num, int min, double cMin, int minI, 
+            double cosInt) {
+        super(n, i, ciud, m, mod, num);
         minNac = min;
         costminNac = cMin;
         minInt = minI;
@@ -68,7 +69,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
                 + "Número de minutos nacionales: %d\n"
                 + "Número de minutos internacionales: %d\n"
                 + "Pago mensual: %.2f\n",
-                prop,
+                nom,
                 marca,
                 modelo,
                 obtenerMinNac(),

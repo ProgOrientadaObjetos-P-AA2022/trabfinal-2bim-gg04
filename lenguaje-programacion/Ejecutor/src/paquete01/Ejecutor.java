@@ -1,6 +1,8 @@
 package paquete01;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+import paquete2.Enlace;
 import paquete2.Propietario;
 
 /**
@@ -9,8 +11,9 @@ import paquete2.Propietario;
  */
 public class Ejecutor {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws SQLException  {
         Scanner entrada = new Scanner(System.in);
+        Enlace c = new Enlace();
         boolean b = true;
         do {
             System.out.println("Ingrese el nombre del propietario:");
@@ -19,8 +22,6 @@ public class Ejecutor {
             String id = entrada.nextLine();
             System.out.println("Ingrese ciudad del propietario:");
             String ciud = entrada.nextLine();
-            Propietario prop = new Propietario(nom, id, ciud);
-
             System.out.println("Ingrese la marca del celular:");
             String marca = entrada.nextLine();
             System.out.println("Ingrese el modelo del celular:");
@@ -46,9 +47,10 @@ public class Ejecutor {
                 int minInter = entrada.nextInt();
                 System.out.println("Ingrese el costo por minuto internacional:");
                 double cost2 = entrada.nextDouble();
-                PlanPostPagoMinutos p = new PlanPostPagoMinutos(prop, marca,
-                        mod, num, min, cost, minInter, cost2);
+                PlanPostPagoMinutos p = new PlanPostPagoMinutos(nom, id, ciud,
+                        marca, mod, num, min, cost, minInter, cost2);
                 p.calcularPagoMensual();
+                c.insertarPlanPostPagoMinutos(p);
             } else if (op == 2) {
                 System.out.println("Ingrese las megas expresado en gigas:");
                 double megasGb = entrada.nextDouble();
@@ -56,9 +58,10 @@ public class Ejecutor {
                 double gB = entrada.nextDouble();
                 System.out.println("Ingrese la tarifa base:");
                 double tari = entrada.nextDouble();
-                PlanPostPagoMegas p = new PlanPostPagoMegas(prop, marca, mod,
-                        num, megasGb, gB, tari);
+                PlanPostPagoMegas p = new PlanPostPagoMegas(nom, id, ciud,
+                        marca, mod, num, megasGb, gB, tari);
                 p.calcularPagoMensual();
+                c.insertarPlanPostPagoMegas(p);
             } else if (op == 3) {
                 System.out.println("Ingrese el número de los minutos:");
                 int min = entrada.nextInt();
@@ -68,9 +71,10 @@ public class Ejecutor {
                 double megasGb = entrada.nextInt();
                 System.out.println("Ingrese el costo por cada giga:");
                 double gB = entrada.nextDouble();
-                PlanPostPagoMinutosMegas p = new PlanPostPagoMinutosMegas(prop,
-                        marca, mod, num, min, cost, megasGb, gB);
+                PlanPostPagoMinutosMegas p = new PlanPostPagoMinutosMegas(nom,
+                        id, ciud, marca, mod, num, min, cost, megasGb, gB);
                 p.calcularPagoMensual();
+                c.insertarPlanPostPagoMinutosMegas(p);
             } else if (op == 4) {
                 System.out.println("Ingrese el número de los minutos:");
                 int min = entrada.nextInt();
@@ -82,18 +86,38 @@ public class Ejecutor {
                 double gB = entrada.nextDouble();
                 System.out.println("Ingrese el porcentaje de descuento:");
                 double por = entrada.nextDouble();
-                PlanPostPagoMinutosMegasEconomico p = new PlanPostPagoMinutosMegasEconomico(prop, marca, mod, num,
-                        min, cost, megasGb, gB, por);
+                PlanPostPagoMinutosMegasEconomico p
+                        = new PlanPostPagoMinutosMegasEconomico(nom, id, ciud,
+                                marca, mod, num, min, cost, megasGb, gB, por);
                 p.calcularPagoMensual();
+                c.insertarPlanPostPagoMinutosMegasEconomico(p);
             }
-            /*for (int i = 0; i < c.obtenerDataAuto().size(); i++) {
-            System.out.printf("%s\n", c.obtenerDataAuto().get(i));
-            }*/
+
             entrada.nextLine();
             System.out.println("Ingrese SI para salir del proceso");
             String opc = entrada.nextLine();
             if ("SI".equals(opc) || "Si".equals(opc)) {
                 b = false;
+                for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); 
+                        i++) {
+                    System.out.printf("%s\n", 
+                            c.obtenerDataPlanPostPagoMinutos().get(i));
+                }
+                for (int i = 0; i < c.obtenerPlanPostPagoMegas().size(); i++) {
+                    System.out.printf("%s\n", 
+                            c.obtenerPlanPostPagoMegas().get(i));
+                }
+                for (int i = 0; i < c.obtenerPlanPostPagoMinutosMegas().size(); 
+                        i++) {
+                    System.out.printf("%s\n", 
+                            c.obtenerPlanPostPagoMinutosMegas().get(i));
+                }
+                for (int i = 0; i
+                        < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size();
+                        i++) {
+                    System.out.printf("%s\n",
+                            c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
+                }
             }
         } while (b);
     }

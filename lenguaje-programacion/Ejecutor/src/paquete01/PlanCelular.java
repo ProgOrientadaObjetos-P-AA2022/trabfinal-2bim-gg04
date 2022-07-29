@@ -8,21 +8,33 @@ import paquete2.Propietario;
  */
 public abstract class PlanCelular {
 
-    protected Propietario prop;
+    protected String nom;
+    protected String ced;
+    protected String ciudad;
     protected String marca;
     protected String modelo;
     protected String num_celular;
     protected double pago_mensual;
 
-    public PlanCelular(Propietario p, String m, String mod, String num){
-        prop = p;
+    public PlanCelular(String n, String i, String ciud, String m, String mod, String num) {
+        nom = n;
+        ced = i;
+        ciudad = ciud;
         marca = m;
         modelo = mod;
         num_celular = num;
     }
-    
-    public void establecerProp(Propietario n) {
-        prop = n;
+
+    public void establecerNom(String n) {
+        nom = n;
+    }
+
+    public void establecerId(String n) {
+        ced = n;
+    }
+
+    public void establecerCiudad(String n) {
+        ciudad = n;
     }
 
     public void establecerMarca(String n) {
@@ -39,8 +51,16 @@ public abstract class PlanCelular {
 
     public abstract void calcularPagoMensual();
 
-    public Propietario obtenerProp() {
-        return prop;
+    public String obtenerNom() {
+        return nom;
+    }
+
+    public String obtenerId() {
+        return ced;
+    }
+
+    public String obtenerCiudad() {
+        return ciudad;
     }
 
     public String obtenerMarca() {

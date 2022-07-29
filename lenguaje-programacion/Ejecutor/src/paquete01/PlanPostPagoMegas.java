@@ -12,9 +12,9 @@ public class PlanPostPagoMegas extends PlanCelular {
     private double costGb;
     private double tarbase;
 
-    public PlanPostPagoMegas(Propietario p, String m, String mod, String num,
+    public PlanPostPagoMegas(String n, String i, String ciud, String m, String mod, String num,
             double me, double co, double tar) {
-        super(p, m, mod, num);
+        super(n, i, ciud, m, mod, num);
         megGb = me;
         costGb = co;
         tarbase = tar;
@@ -59,7 +59,7 @@ public class PlanPostPagoMegas extends PlanCelular {
                 + "Costo por giga: %.0f\n"
                 + "Tarifa base: %.2f\n"
                 + "Pago mensual: %.2f\n",
-                prop,
+                nom,
                 marca,
                 modelo,
                 obtenerCostGb(),

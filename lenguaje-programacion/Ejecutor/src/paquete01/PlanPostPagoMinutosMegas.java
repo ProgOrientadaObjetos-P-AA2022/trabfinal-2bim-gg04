@@ -13,10 +13,10 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     private double megGb;
     private double costGb;
 
-    public PlanPostPagoMinutosMegas(Propietario p, String m, String mod,
-            String num, int mi, double cost,
-            double me, double costGB) {
-        super(p, m, mod, num);
+    public PlanPostPagoMinutosMegas(String n, String i, String ciud, String m, 
+            String mod, String num, int mi, double cost, double me, 
+            double costGB) {
+        super(n, i, ciud, m, mod, num);
         min = mi;
         costminutos = cost;
         megGb = me;
@@ -72,7 +72,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
                 + "Numero de megas expresados en gigas: %.2f\n"
                 + "Costo por cada giga: %.2f\n "
                 + "Pago mensual: %.2f\n",
-                prop,
+                nom,
                 marca,
                 modelo,
                 obtenerMin(),
