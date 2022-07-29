@@ -20,7 +20,8 @@ public class Enlace {
 
         try {
             // db parameters  
-            String url = "jdbc:sqlite:bd/plan.bd";
+            
+            String url = "jdbc:sqlite:bd/base.bd";
             // create a connection to the database  
             conn = DriverManager.getConnection(url);
             // System.out.println(conn.isClosed());
