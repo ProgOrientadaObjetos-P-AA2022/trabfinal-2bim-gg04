@@ -1,4 +1,3 @@
-
 package paquete01;
 
 /**
@@ -6,9 +5,9 @@ package paquete01;
  * @author andreflores
  */
 public class PlanPostPagoMegas extends PlanCelular {
+
     private double megGb;
     private double costGb;
-
     private double tarbase;
 
     public double getTarbase() {
@@ -38,6 +37,6 @@ public class PlanPostPagoMegas extends PlanCelular {
     @Override
     public void calcularPagoMensual() {
         // TODO Auto-generated method stub
-        
+
     }
 }

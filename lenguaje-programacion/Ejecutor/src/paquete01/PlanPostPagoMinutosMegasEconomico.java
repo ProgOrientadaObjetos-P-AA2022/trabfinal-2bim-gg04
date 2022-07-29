@@ -1,4 +1,3 @@
-
 package paquete01;
 
 /**
@@ -6,6 +5,7 @@ package paquete01;
  * @author andreflores
  */
 public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
+
     private int min;
     private double por;
     private double costmin;
@@ -24,32 +24,32 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return costmin;
     }
 
-    public void setCostmin(double costmin) {
-        this.costmin = costmin;
+    public void setCostmin(double n) {
+        costmin = n;
     }
 
     public double getMegGb() {
         return megGb;
     }
 
-    public void setMegGb(double megGb) {
-        this.megGb = megGb;
+    public void setMegGb(double n) {
+        megGb = n;
     }
 
     public double getCostGb() {
         return costGb;
     }
 
-    public void setCostGb(double costGb) {
-        this.costGb = costGb;
+    public void setCostGb(double n) {
+        costGb = n;
     }
 
     public double getPor() {
         return por;
     }
 
-    public void setPor(double por) {
-        this.por = por;
+    public void setPor(double n) {
+        por = n;
     }
 
     @Override

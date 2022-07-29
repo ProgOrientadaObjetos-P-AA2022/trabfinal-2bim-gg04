@@ -1,4 +1,3 @@
-
 package paquete01;
 
 /**
@@ -6,12 +5,10 @@ package paquete01;
  * @author andreflores
  */
 public class PlanPostPagoMinutos extends PlanCelular {
+
     private int minNac;
-
     private double costminNac;
-
     private int minInt;
-
     private double costminInt;
 
     public double getCostminInt() {
@@ -49,6 +46,6 @@ public class PlanPostPagoMinutos extends PlanCelular {
     @Override
     public void calcularPagoMensual() {
         // TODO Auto-generated method stub
-        
+
     }
 }
