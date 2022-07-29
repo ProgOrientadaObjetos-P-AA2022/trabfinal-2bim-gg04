@@ -1,10 +1,17 @@
 package paquete01;
 
+import paquete2.Propietario;
+
 /**
  *
  * @author andreflores
  */
 public class PlanPostPagoMegas extends PlanCelular {
+
+    public PlanPostPagoMegas(Propietario p, String m, String mod, String num) {
+        super(p, m, mod, num);
+        //TODO Auto-generated constructor stub
+    }
 
     private double megGb;
     private double costGb;
@@ -12,27 +19,27 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     
 
-    public void setTarbase(double tarbase) {
+    public void establecerTarbase(double tarbase) {
         this.tarbase = tarbase;
     }
 
-    public double getCostGb() {
+    public double obtenerCostGb() {
         return costGb;
     }
 
-    public void setCostGb(double costGb) {
+    public void establecerCostGb(double costGb) {
         this.costGb = costGb;
     }
 
-    public double getMegGb() {
+    public double obtenerMegGb() {
         return megGb;
     }
 
-    public void setMegGb(double megGb) {
+    public void establecerMegGb(double megGb) {
         this.megGb = megGb;
     }
     
-    public double getTarbase() {
+    public double obtenerTarbase() {
         return tarbase;
     }
 

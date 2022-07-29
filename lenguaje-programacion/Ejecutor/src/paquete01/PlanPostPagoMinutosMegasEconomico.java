@@ -1,5 +1,7 @@
 package paquete01;
 
+import paquete2.Propietario;
+
 /**
  *
  * @author andreflores
@@ -12,43 +14,53 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double megGb;
     private double costGb;
 
-    public int getMin() {
+    public PlanPostPagoMinutosMegasEconomico(Propietario p, String m, String mod, String num, int min, double por,
+            double costmin, double megGb, double costGb) {
+        super(p, m, mod, num);
+        this.min = min;
+        this.por = por;
+        this.costmin = costmin;
+        this.megGb = megGb;
+        this.costGb = costGb;
+    }
+
+    public int obtenerMin() {
         return min;
     }
 
-    public void setMin(int min) {
+    public void establecerMin(int min) {
         this.min = min;
     }
 
-    public double getCostmin() {
+    public double obtenerCostmin() {
         return costmin;
     }
 
-    public void setCostmin(double n) {
+    public void establecerCostmin(double n) {
         costmin = n;
     }
 
-    public double getMegGb() {
+    public double obtenerMegGb() {
         return megGb;
     }
 
-    public void setMegGb(double n) {
+    public void establecerMegGb(double n) {
         megGb = n;
     }
 
-    public double getCostGb() {
+    public double obtenerCostGb() {
         return costGb;
     }
 
-    public void setCostGb(double n) {
+    public void establecerCostGb(double n) {
         costGb = n;
     }
 
-    public double getPor() {
+    public double obtenerPor() {
         return por;
     }
 
-    public void setPor(double n) {
+    public void establecerPor(double n) {
         por = n;
     }
 
