@@ -9,7 +9,7 @@ import paquete2.Propietario;
 public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
 
     private int min;
-    private double por;
+    private double porcentajedesc;
     private double costmin;
     private double megGb;
     private double costGb;
@@ -18,7 +18,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
             double costmin, double megGb, double costGb) {
         super(p, m, mod, num);
         this.min = min;
-        this.por = por;
+        this.porcentajedesc = por;
         this.costmin = costmin;
         this.megGb = megGb;
         this.costGb = costGb;
@@ -57,17 +57,36 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     }
 
     public double obtenerPor() {
-        return por;
+        return porcentajedesc;
     }
 
     public void establecerPor(double n) {
-        por = n;
+        porcentajedesc = n;
     }
 
     @Override
     public void calcularPagoMensual() {
         // TODO Auto-generated method stub
 
+    }
+    @Override
+    public String toString() {
+        String data = String.format("Plan PostPago Megas\n"
+                + "Propietario: %s\n"
+                + "Marca: %s\n"
+                + "Modelo: %s\n"
+                + "Número de minutos plan PostPago Megas Economico: %d\n"
+                + "Costo de minutos plan PostPago Megas Economico: %d\n"
+                + "Numero de megas expresados en gigas plan PostPago Megas Economico: %.2f\n" + "Costo de megas plan PostPago Megas Economico"
+                + "Pago mensual: %.2f\n",
+                prop,
+                marca,
+                modelo,
+                obtenerMin(),
+                obtenerCostmin(),
+                obtenerMegGb(),
+                obtenerCostGb(), obtenerPagoMensual());
+        return data;
     }
 
 }
