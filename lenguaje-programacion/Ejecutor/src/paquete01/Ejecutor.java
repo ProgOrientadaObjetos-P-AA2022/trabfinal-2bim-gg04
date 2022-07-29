@@ -11,7 +11,7 @@ import paquete2.Propietario;
  */
 public class Ejecutor {
 
-    public static void main(String[] args)throws SQLException  {
+    public static void main(String[] args) throws SQLException {
         Scanner entrada = new Scanner(System.in);
         Enlace c = new Enlace();
         boolean b = true;
@@ -98,18 +98,18 @@ public class Ejecutor {
             String opc = entrada.nextLine();
             if ("SI".equals(opc) || "Si".equals(opc)) {
                 b = false;
-                for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); 
+                for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size();
                         i++) {
-                    System.out.printf("%s\n", 
+                    System.out.printf("%s\n",
                             c.obtenerDataPlanPostPagoMinutos().get(i));
                 }
                 for (int i = 0; i < c.obtenerPlanPostPagoMegas().size(); i++) {
-                    System.out.printf("%s\n", 
+                    System.out.printf("%s\n",
                             c.obtenerPlanPostPagoMegas().get(i));
                 }
-                for (int i = 0; i < c.obtenerPlanPostPagoMinutosMegas().size(); 
+                for (int i = 0; i < c.obtenerPlanPostPagoMinutosMegas().size();
                         i++) {
-                    System.out.printf("%s\n", 
+                    System.out.printf("%s\n",
                             c.obtenerPlanPostPagoMinutosMegas().get(i));
                 }
                 for (int i = 0; i
